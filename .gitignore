@@ -1,0 +1,39 @@
+# Python Bytecode files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Flask instance folder
+instance/
+
+# Flask settings
+*.sqlite3
+*.db
+
+# Pytest cache
+.cache/
+
+# Logs
+*.log
+
+# IDEs and text editors
+.vscode/
+.idea/
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+
+# GitHub Actions artifact and cache folders
+.github/
