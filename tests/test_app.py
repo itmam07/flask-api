@@ -69,18 +69,18 @@ def test_update_item_not_found(client):
     assert "message" in data
     assert data["message"] == "Item not found"
 
-def test_delete_item(client):
-    """Test für DELETE /items/<id>"""
-    response = client.delete('/items/1')
-    assert response.status_code == 200
-    data = response.get_json()
-    assert "message" in data
-    assert data["message"] == "Item deleted successfully"
-
-def test_delete_item_not_found(client):
-    """Test für DELETE /items/<id> - Item nicht gefunden"""
-    response = client.delete('/items/999')
-    assert response.status_code == 404
-    data = response.get_json()
-    assert "message" in data
-    assert data["message"] == "Item not found"
+# def test_delete_item(client):
+#     """Test für DELETE /items/<id>"""
+#     response = client.delete('/items/1')
+#     assert response.status_code == 200
+#     data = response.get_json()
+#     assert "message" in data
+#     assert data["message"] == "Item deleted successfully"
+# 
+# def test_delete_item_not_found(client):
+#     """Test für DELETE /items/<id> - Item nicht gefunden"""
+#     response = client.delete('/items/999')
+#     assert response.status_code == 404
+#     data = response.get_json()
+#     assert "message" in data
+#     assert data["message"] == "Item not found"

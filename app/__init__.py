@@ -44,13 +44,13 @@ def update_item(item_id):
     return jsonify(item)
 
 # Route 5: Ein Item löschen
-@app.route('/items/<int:item_id>', methods=['DELETE'])
-def delete_item(item_id):
-    item = next((item for item in items if item["id"] == item_id), None)
-    if item is None:
-        return jsonify({"message": "Item not found"}), 404
-    items.remove(item)
-    return jsonify({"message": "Item deleted successfully"}), 200
+# @app.route('/items/<int:item_id>', methods=['DELETE'])
+# def delete_item(item_id):
+#     item = next((item for item in items if item["id"] == item_id), None)
+#     if item is None:
+#         return jsonify({"message": "Item not found"}), 404
+#     items.remove(item)
+#     return jsonify({"message": "Item deleted successfully"}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
