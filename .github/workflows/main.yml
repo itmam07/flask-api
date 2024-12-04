@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - dev
   pull_request:
     branches:
       - main
@@ -32,8 +31,8 @@ jobs:
       run: |
         ./.venv/bin/pytest
 
-    - name: Upload test results (optional)
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: ./tests/test_results.xml
+    # - name: Upload test results (optional)
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: test-results
+    #     path: ./tests/test_results.xml
