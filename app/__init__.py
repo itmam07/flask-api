@@ -47,8 +47,8 @@ def update_item(item_id):
 @app.route('/items/<int:item_id>', methods=['DELETE'])
 def delete_item(item_id):
     item = next((item for item in items if item["id"] == item_id), None)
-    # if item is None:
-    #    return jsonify({"message": "Item not found"}), 404
+    if item is None:
+       return jsonify({"message": "Item not found"}), 404
     items.remove(item)
     return jsonify({"message": "Item deleted successfully"}), 200
 
