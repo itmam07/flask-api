@@ -9,12 +9,12 @@ items = [
     {"id": 3, "name": "Item 3", "description": "This is item 3"}
 ]
 
-# Route 1: Alle Items abrufen
+# GET Alle Items abrufen
 @app.route('/items', methods=['GET'])
 def get_items():
     return jsonify({"items": items})
 
-# Route 2: Ein einzelnes Item abrufen
+# GET Ein einzelnes Item abrufen
 @app.route('/items/<int:item_id>', methods=['GET'])
 def get_item(item_id):
     item = next((item for item in items if item["id"] == item_id), None)
@@ -22,7 +22,7 @@ def get_item(item_id):
         return jsonify({"message": "Item not found"}), 404
     return jsonify(item)
 
-# Route 3: Ein neues Item erstellen
+# POST Ein neues Item erstellen
 @app.route('/items', methods=['POST'])
 def create_item():
     new_item = request.get_json()
@@ -33,7 +33,7 @@ def create_item():
     items.append(new_item)
     return jsonify(new_item), 201
 
-# Route 4: Ein Item aktualisieren
+# PUT Ein Item aktualisieren
 @app.route('/items/<int:item_id>', methods=['PUT'])
 def update_item(item_id):
     item = next((item for item in items if item["id"] == item_id), None)
@@ -43,12 +43,12 @@ def update_item(item_id):
     item.update(updated_item)
     return jsonify(item)
 
-# Route 5: Ein Item löschen
+# DELETE Ein Item löschen
 @app.route('/items/<int:item_id>', methods=['DELETE'])
 def delete_item(item_id):
     item = next((item for item in items if item["id"] == item_id), None)
-    if item is None:
-       return jsonify({"message": "Item not found"}), 404
+    # if item is None:
+    #     return jsonify({"message": "Item not found"}), 404
     items.remove(item)
     return jsonify({"message": "Item deleted successfully"}), 200
 
